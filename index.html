@@ -1,11 +1,32 @@
 <!DOCTYPE html>
-
 <html lang="en">
-<link href="logo.png" rel="icon"/>
-<head><title>Shine &amp; Glow | Bridal Makeup &amp; Beauty Salon in Patna</title>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<style>
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    
+    <!-- Primary SEO Metadata -->
+    <title>Shine &amp; Glow | Best Bridal Makeup &amp; Beauty Salon in Patna</title>
+    <meta name="description" content="Shine &amp; Glow is a top beauty salon in Patna offering expert bridal makeup, skincare, hair care, manicures, and pedicures. Book your visit online today!"/>
+    <meta name="keywords" content="beauty salon patna, bridal makeup patna, hair care patna, skin care rajeev nagar, manicure pedicure patna, shine and glow"/>
+    <meta name="robots" content="index, follow"/>
+    <link rel="canonical" href="https://shineandglowpatna.com/"/>
+    <link rel="icon" href="logo.png" type="image/png"/>
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="business.business"/>
+    <meta property="og:title" content="Shine &amp; Glow | Best Bridal Makeup &amp; Beauty Salon in Patna"/>
+    <meta property="og:description" content="Dedicated to giving you the perfect makeover for every special occasion. Professional makeup, skincare, and hair styling in Rajeev Nagar, Patna."/>
+    <meta property="og:image" content="https://shineandglowpatna.com/logo.png"/>
+    <meta property="og:url" content="https://shineandglowpatna.com/"/>
+    <meta property="og:site_name" content="Shine &amp; Glow Patna"/>
+
+    <!-- Twitter Card Data -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Shine &amp; Glow | Best Bridal Makeup &amp; Beauty Salon in Patna"/>
+    <meta name="twitter:description" content="Transform your look with expert makeup and beauty services in Patna."/>
+    <meta name="twitter:image" content="https://shineandglowpatna.com/logo.png"/>
+
+    <style>
         /* Base Reset & Variables */
         * {
             margin: 0;
@@ -289,7 +310,7 @@
             background: rgba(255,255,255,0.05);
         }
 
-        .reviewer-info h4 {
+        .reviewer-info h3 {
             font-size: 1.05rem;
             margin-bottom: 2px;
         }
@@ -396,7 +417,7 @@
             transform: scale(0.95);
         }
 
-        /* Translucent Alert Notice to inform users of the redirect */
+        /* Translucent Alert Notice */
         .whatsapp-notice {
             font-size: 0.82rem;
             color: rgba(255, 255, 255, 0.65);
@@ -417,20 +438,50 @@
             animation: fadeInUp 0.8s ease-out 1.2s forwards;
         }
 
-        .outlet-map-placeholder {
+        /* Clickable Map Image Container */
+        .outlet-map-link {
             width: 40%;
             height: 180px;
-            background: rgba(255,255,255,0.2);
             border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             overflow: hidden;
+            display: block;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .outlet-info h3 {
+        .outlet-map-link:hover {
+            transform: scale(1.02);
+            border-color: #ff9e1b;
+        }
+
+        .outlet-map-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .map-overlay-badge {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 8px;
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .outlet-info h2 {
             font-size: 1.8rem;
             margin-bottom: 15px;
+            font-family: serif;
         }
 
         .outlet-info p {
@@ -478,7 +529,7 @@
                 grid-template-columns: 1fr;
                 flex-direction: column;
             }
-            .hero-content, .hero-image-container, .outlet-map-placeholder {
+            .hero-content, .hero-image-container, .outlet-map-link {
                 width: 100%;
             }
             .hero-content h1 {
@@ -489,160 +540,206 @@
             }
         }
     </style>
-<meta content="Shine &amp; Glow is a beauty salon in Patna offering bridal makeup, hair styling, facials, manicure, pedicure and more. Book your appointment online." name="description"/></head>
+</head>
 <body>
-<main class="container" id="top">
-<!-- Header / Navigation -->
-<header>
-<div class="logo-box glass-panel">
-<img alt="S&amp;G Logo" class="logo-img" src="logo.png"/>
-<span>Shine &amp; Glow</span>
-</div>
-<nav class="glass-panel">
-<a class="active" href="#">Home</a>
-<a href="team.html">Our Team</a>
-<a href="services.html">Services</a>
-<a href="contact.html">Contact</a>
-</nav>
-</header>
-<!-- Hero Section -->
-<section class="hero">
-<div class="hero-image-container">
-<div class="hero-bg-text">S&amp;G<br/>S&amp;G<br/>S&amp;G<br/>S&amp;G</div>
-<img alt="" and="" at="" bridal="" class="hero-img" glow="" makeover="" patna"="" salon="" services="" shine="" src="unnamed-removebg-preview 3.png"/>
-</div>
-<div class="hero-content">
-<h1>Shine &amp; Glow</h1>
-<p>S&amp;G is dedicated to provide you a perfect makeover and make any event <span class="highlight">special and remarkable</span></p>
-<div class="cta-buttons">
-<a class="btn btn-primary" href="#booking" style="display:inline-block;">Book online</a>
-<a href="contact.html">
-<button class="btn btn-secondary">Request a call</button>
-</a>
-</div>
-</div>
-</section>
-<!-- Reviews Section -->
-<section class="reviews-container">
-<h2 class="section-title-bar glass-panel">Reviews From Our Customers</h2>
-<div class="reviews-grid">
-<!-- Review 1 -->
-<div class="review-card glass-panel">
-<div class="review-header">
-<div class="avatar-stub">B</div>
-<div class="reviewer-info">
-<h4>Bhavya Bhaskar</h4>
-<div class="stars">★★★★★</div>
-</div>
-</div>
-<p class="review-text">An absolutely amazing experience. Fantastic service at a very reasonable price. The beautician was highly skilled and made me feel so comfortable</p>
-</div>
-<!-- Review 2 -->
-<div class="review-card glass-panel">
-<div class="review-header">
-<div class="avatar-stub">K</div>
-<div class="reviewer-info">
-<h4>Krishita Kc</h4>
-<div class="stars">★★★★★</div>
-</div>
-</div>
-<p class="review-text">The owner is really polite. Service was so nice. You will feel very comfortable</p>
-</div>
-</div>
-<a href="https://www.google.com/search?sca_esv=d7a897ae2fa4bc83&amp;sxsrf=APpeQnuHmUOlDrFazWwcTTeZF1Kjmm9kqA:1783427690534&amp;si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-__EDG9xWtXgOYKL-gPYQsS09bEwE6-T_jjilky7v5H61Y6q20NZt4ZoXiaKkl0aqpQoGkGba4IQU0bYOJ1e7l9CfFw9d&amp;q=shine+n+glow+Reviews&amp;sa=X&amp;ved=2ahUKEwj29ufvycCVAxWHaXADHfT1NSIQ0bkNegQIKRAF&amp;biw=1366&amp;bih=645&amp;dpr=1">
-<button class="btn btn-primary" style="margin-top: 15px; padding: 10px 35px;">Read more</button>
-</a>
-</section>
-<!-- Booking Form Section -->
-<section class="booking-section" id="booking">
-<h2 class="section-title-bar glass-panel" style="max-width: 450px;">Book a visit now</h2>
-<div class="form-card glass-panel">
-<form onsubmit="sendBookingToWhatsApp(event);">
-<div class="form-grid">
-<div class="form-group">
-<label for="name">Name</label>
-<input id="name" placeholder="Type here..." required="" type="text"/>
-</div>
-<div class="form-group">
-<label for="time">Time slot</label>
-<input id="time" placeholder="Type here..." required="" type="text"/>
-</div>
-<div class="form-group">
-<label for="phone">Ph. number</label>
-<input id="phone" placeholder="Type here..." required="" type="tel"/>
-</div>
-<div class="form-group">
-<label for="location">Location</label>
-<input id="location" placeholder="Type here..." type="text"/>
-</div>
-<!-- Chosen Service query selector field featuring integrated navigation indicators -->
-<div class="form-group" style="grid-column: span 2;">
-<label for="service">Chosen Service</label>
-<select id="service" required="">
-<option value="">-- Select a service --</option>
-<option value="hair">Skin care</option>
-<option value="facial">Hair care</option>
-<option value="massage">Manicure and pedicure</option>
-<option value="manicure">Makeup </option>
-</select>
-</div>
-</div>
-<!-- Updated submission field featuring prominent messaging notes -->
-<div class="form-submit-container">
-<button class="btn-submit" type="submit">Confirm on WhatsApp 💬</button>
-<div class="whatsapp-notice">
+    <main class="container" id="top">
+        <!-- Header / Navigation -->
+        <header>
+            <div class="logo-box glass-panel">
+                <img alt="Shine and Glow Salon Logo" class="logo-img" src="logo.png" width="30" height="30"/>
+                <span>Shine &amp; Glow</span>
+            </div>
+            <nav class="glass-panel" aria-label="Main Navigation">
+                <a class="active" href="/">Home</a>
+                <a href="/team">Our Team</a>
+                <a href="/services">Services</a>
+                <a href="/contact">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-image-container">
+                <div class="hero-bg-text" aria-hidden="true">S&amp;G<br/>S&amp;G<br/>S&amp;G<br/>S&amp;G</div>
+                <img alt="Shine and Glow Bridal Makeover and Beauty Salon Services in Patna" class="hero-img" src="unnamed-removebg-preview 3.png" loading="eager"/>
+            </div>
+            <div class="hero-content">
+                <h1>Shine &amp; Glow</h1>
+                <p>S&amp;G is dedicated to providing you with a perfect makeover to make any event <span class="highlight">special and remarkable</span>.</p>
+                <div class="cta-buttons">
+                    <a class="btn btn-primary" href="#booking" style="display:inline-block;">Book online</a>
+                    <a href="/contact">
+                        <button class="btn btn-secondary" type="button">Request a call</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="reviews-container">
+            <h2 class="section-title-bar glass-panel">Reviews From Our Customers</h2>
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <article class="review-card glass-panel">
+                    <header class="review-header">
+                        <div class="avatar-stub" aria-hidden="true">B</div>
+                        <div class="reviewer-info">
+                            <h3>Bhavya Bhaskar</h3>
+                            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                        </div>
+                    </header>
+                    <p class="review-text">An absolutely amazing experience. Fantastic service at a very reasonable price. The beautician was highly skilled and made me feel so comfortable.</p>
+                </article>
+                <!-- Review 2 -->
+                <article class="review-card glass-panel">
+                    <header class="review-header">
+                        <div class="avatar-stub" aria-hidden="true">K</div>
+                        <div class="reviewer-info">
+                            <h3>Krishita Kc</h3>
+                            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                        </div>
+                    </header>
+                    <p class="review-text">The owner is really polite. Service was so nice. You will feel very comfortable.</p>
+                </article>
+            </div>
+            <a href="https://www.google.com/search?q=shine+n+glow+Reviews" target="_blank" rel="noopener noreferrer">
+                <button class="btn btn-primary" type="button" style="margin-top: 15px; padding: 10px 35px;">Read more</button>
+            </a>
+        </section>
+
+        <!-- Booking Form Section -->
+        <section class="booking-section" id="booking">
+            <h2 class="section-title-bar glass-panel" style="max-width: 450px;">Book a visit now</h2>
+            <div class="form-card glass-panel">
+                <form onsubmit="sendBookingToWhatsApp(event);">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input id="name" placeholder="Type here..." required="" type="text"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Time slot</label>
+                            <input id="time" placeholder="Type here..." required="" type="text"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Ph. number</label>
+                            <input id="phone" placeholder="Type here..." required="" type="tel"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input id="location" placeholder="Type here..." type="text"/>
+                        </div>
+                        <div class="form-group" style="grid-column: span 2;">
+                            <label for="service">Chosen Service</label>
+                            <select id="service" required="">
+                                <option value="">-- Select a service --</option>
+                                <option value="skincare">Skin care</option>
+                                <option value="haircare">Hair care</option>
+                                <option value="mani-pedi">Manicure and pedicure</option>
+                                <option value="makeup">Makeup</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-submit-container">
+                        <button class="btn-submit" type="submit">Confirm on WhatsApp 💬</button>
+                        <div class="whatsapp-notice">
                             ℹ️ <em>You will be redirected securely to WhatsApp to send your structured appointment message straight to us.</em>
-</div>
-</div>
-</form>
-</div>
-</section>
-<br/>
-<br/>
-<br/>
-<br/>
-<!-- Primary Outlet Section -->
-<section>
-<div class="outlet-card glass-panel">
-<div class="outlet-map-placeholder">
-<div style="color: rgba(255,255,255,0.4); font-size: 0.9rem; text-align: center; padding: 10px;">[ Outlet Preview Mapping ]</div>
-</div>
-<div class="outlet-info">
-<h2>Our primary outlet</h2>
-<p>Road no.6 rajeevnagar patna bihar</p>
-</div>
-</div>
-</section>
-</main>
-<!-- Minimal Footer Component -->
-<footer>
-<a class="back-to-top" href="#top">Back to top ↑</a>
-<div class="copyright">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <br/><br/><br/><br/>
+
+        <!-- Primary Outlet Section -->
+        <section>
+            <div class="outlet-card glass-panel">
+                <!-- Interactive Map Link Preview -->
+                <a href="https://www.google.com/maps/place/shine+n+glow/@25.6233604,85.0951751,17z/data=!3m1!4b1!4m6!3m5!1s0x39ed57d2583af3d9:0xa10482cfa4dbde86!8m2!3d25.6233604!4d85.0951751!16s%2Fg%2F11nytwhyqq" target="_blank" rel="noopener noreferrer" class="outlet-map-link" title="Open Shine & Glow on Google Maps">
+                    <img src="map-photo.png" alt="Shine &amp; Glow Beauty Salon Google Maps Location Rajeev Nagar Patna" class="outlet-map-img"/>
+                    <div class="map-overlay-badge">
+                        <span>📍 Open in Maps</span>
+                    </div>
+                </a>
+                <div class="outlet-info">
+                    <h2>Our primary outlet</h2>
+                    <p>Road no.6, Rajeev Nagar, Patna, Bihar 800024</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <footer>
+        <a class="back-to-top" href="#top">Back to top ↑</a>
+        <div class="copyright">
             © 2026 Shine &amp; Glow. All Rights Reserved.
         </div>
-</footer>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BeautySalon",
-  "name": "Shine \u0026 Glow",
-  "image": "https://shineandglowpatna.com/logo.png",
-  "telephone": "+919386870037",
-  "url": "https://shineandglowpatna.com", 
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Road no.6, Rajeev Nagar",
-    "addressLocality": "Patna",
-    "addressRegion": "Bihar",
-    "postalCode": "800024",
-    "addressCountry": "IN"
-  },
-  "priceRange": "₹₹"
-}
-</script>
-<!-- Booking Mechanics Script Logic Handles -->
-<script>
-        // Automatically pre-select option based on incoming links from services page
+    </footer>
+
+    <!-- Structured Data (JSON-LD) with Exact Geo & Map Link -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BeautySalon",
+      "name": "Shine & Glow",
+      "image": "https://shineandglowpatna.com/logo.png",
+      "telephone": "+919386870037",
+      "url": "https://shineandglowpatna.com",
+      "hasMap": "https://www.google.com/maps/place/shine+n+glow/@25.6233604,85.0951751,17z/data=!3m1!4b1!4m6!3m5!1s0x39ed57d2583af3d9:0xa10482cfa4dbde86!8m2!3d25.6233604!4d85.0951751!16s%2Fg%2F11nytwhyqq",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Road no. 6, Rajeev Nagar",
+        "addressLocality": "Patna",
+        "addressRegion": "Bihar",
+        "postalCode": "800024",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "25.6233604",
+        "longitude": "85.0951751"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "10:00",
+        "closes": "20:00"
+      },
+      "priceRange": "₹₹",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "2"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Bhavya Bhaskar" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+          "reviewBody": "An absolutely amazing experience. Fantastic service at a very reasonable price."
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Krishita Kc" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+          "reviewBody": "The owner is really polite. Service was so nice. You will feel very comfortable."
+        }
+      ]
+    }
+    </script>
+
+    <!-- Booking Mechanics Script -->
+    <script>
         window.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const serviceParam = urlParams.get('service');
@@ -654,7 +751,6 @@
             }
         });
 
-        // Formats data inputs and dispatches straight onto target salon mobile line via API
         function sendBookingToWhatsApp(event) {
             event.preventDefault();
 
@@ -665,7 +761,6 @@
             const serviceSelect = document.getElementById('service');
             const serviceName = serviceSelect.options[serviceSelect.selectedIndex].text;
 
-            // Target routing number set securely
             const salonWhatsAppNumber = "919386870037"; 
 
             const textMessage = 
