@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<link href="logo.png" rel="icon"/>
+<head><title>Shine &amp; Glow | Bridal Makeup &amp; Beauty Salon in Patna</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<style>
+        /* Base Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #2b1d0c;
+            background-image: radial-gradient(circle at 80% 20%, #613f16 0%, #2b1d0c 70%);
+            color: #ffffff;
+            position: relative;
+            min-height: 100vh;
+            padding-bottom: 20px;
+            overflow-x: hidden;
+        }
+
+        /* Pure CSS Noise Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Reusable Glassmorphism Class */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header / Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 16px 6px 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+        }
+
+        .logo-img {
+            height: 30px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        nav.glass-panel {
+            padding: 5px 10px;
+            border-radius: 30px;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 8px 18px;
+            display: inline-block;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        nav a.active, nav a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 40px 0 60px 0;
+            gap: 40px;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 45%;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-bg-text {
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            font-size: 7rem;
+            font-weight: 900;
+            line-height: 0.8;
+            color: rgba(255, 255, 255, 0.322);
+            z-index: 1;
+            font-family: serif;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            position: relative;
+            z-index: 2;
+            display: block;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-content {
+            width: 50%;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.3s forwards;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-family: serif;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #fff;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .hero-content p {
+            color: #dcdcdc;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .highlight {
+            color: #e68a00;
+            font-weight: 600;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: transform 0.2s, background 0.3s;
+            cursor: pointer;
+        }
+        
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        .btn-primary {
+            background: #e68a00;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #ff9e1b;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Section Dividers / Headers */
+        .section-title-bar {
+            background: rgba(115, 74, 30, 0.6);
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            padding: 12px;
+            font-family: serif;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            margin: 40px auto;
+            text-transform: uppercase;
+            max-width: 90%;
+        }
+
+        /* Reviews Grid */
+        .reviews-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            width: 100%;
+        }
+
+        .review-card {
+            padding: 25px;
+            transition: transform 0.3s;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .avatar-stub {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-family: serif;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .reviewer-info h4 {
+            font-size: 1.05rem;
+            margin-bottom: 2px;
+        }
+
+        .stars {
+            color: #ff9e1b;
+            font-size: 0.9rem;
+        }
+
+        .review-text {
+            color: #dedede;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        /* Booking Form Section */
+        .booking-section {
+            margin-top: 60px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.9s forwards;
+        }
+
+        .form-card {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 35px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 30px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input, .form-group select {
+            background: rgba(255, 255, 255, 0.85);
+            border: none;
+            border-radius: 20px;
+            padding: 12px 18px;
+            color: #222;
+            outline: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: box-shadow 0.3s;
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        /* Dropdown Arrow Selector Icon Styling */
+        .form-group select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23222222' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: calc(100% - 20px) center;
+            padding-right: 45px;
+            cursor: pointer;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            box-shadow: 0 0 0 4px rgba(230, 138, 0, 0.6);
+            background: #ffffff;
+        }
+
+        .form-submit-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-submit {
+            background: #e68a00;
+            color: white;
+            border: none;
+            padding: 14px 55px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(230, 138, 0, 0.3);
+            transition: transform 0.2s, background 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #ff9e1b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(230, 138, 0, 0.5);
+        }
+        
+        .btn-submit:active {
+            transform: scale(0.95);
+        }
+
+        /* Translucent Alert Notice to inform users of the redirect */
+        .whatsapp-notice {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.65);
+            text-align: center;
+            line-height: 1.4;
+            max-width: 85%;
+        }
+
+        /* Outlet / Location Section */
+        .outlet-card {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding: 30px;
+            margin: 60px auto;
+            max-width: 850px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 1.2s forwards;
+        }
+
+        .outlet-map-placeholder {
+            width: 40%;
+            height: 180px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .outlet-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .outlet-info p {
+            color: #dcdcdc;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        /* Footer Styles */
+        footer {
+            margin-top: 80px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(20, 12, 5, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px 20px 20px;
+            text-align: center;
+            animation: fadeIn 1s ease-out 1.5s both;
+        }
+
+        .back-to-top {
+            color: #ff9e1b;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: 0.3s;
+        }
+
+        .back-to-top:hover {
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: #777;
+            padding-top: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero, .reviews-grid, .form-grid, .outlet-card {
+                grid-template-columns: 1fr;
+                flex-direction: column;
+            }
+            .hero-content, .hero-image-container, .outlet-map-placeholder {
+                width: 100%;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .form-grid .form-group:last-child {
+                grid-column: span 1 !important;
+            }
+        }
+    </style>
+<meta content="Shine &amp; Glow is a beauty salon in Patna offering bridal makeup, hair styling, facials, manicure, pedicure and more. Book your appointment online." name="description"/></head>
+<body>
+<main class="container" id="top">
+<!-- Header / Navigation -->
+<header>
+<div class="logo-box glass-panel">
+<img alt="S&amp;G Logo" class="logo-img" src="logo.png"/>
+<span>Shine &amp; Glow</span>
+</div>
+<nav class="glass-panel">
+<a class="active" href="#">Home</a>
+<a href="team.html">Our Team</a>
+<a href="services.html">Services</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+<!-- Hero Section -->
+<section class="hero">
+<div class="hero-image-container">
+<div class="hero-bg-text">S&amp;G<br/>S&amp;G<br/>S&amp;G<br/>S&amp;G</div>
+<img alt="" and="" at="" bridal="" class="hero-img" glow="" makeover="" patna"="" salon="" services="" shine="" src="unnamed-removebg-preview 3.png"/>
+</div>
+<div class="hero-content">
+<h1>Shine &amp; Glow</h1>
+<p>S&amp;G is dedicated to provide you a perfect makeover and make any event <span class="highlight">special and remarkable</span></p>
+<div class="cta-buttons">
+<a class="btn btn-primary" href="#booking" style="display:inline-block;">Book online</a>
+<a href="contact.html">
+<button class="btn btn-secondary">Request a call</button>
+</a>
+</div>
+</div>
+</section>
+<!-- Reviews Section -->
+<section class="reviews-container">
+<h2 class="section-title-bar glass-panel">Reviews From Our Customers</h2>
+<div class="reviews-grid">
+<!-- Review 1 -->
+<div class="review-card glass-panel">
+<div class="review-header">
+<div class="avatar-stub">B</div>
+<div class="reviewer-info">
+<h4>Bhavya Bhaskar</h4>
+<div class="stars">★★★★★</div>
+</div>
+</div>
+<p class="review-text">An absolutely amazing experience. Fantastic service at a very reasonable price. The beautician was highly skilled and made me feel so comfortable</p>
+</div>
+<!-- Review 2 -->
+<div class="review-card glass-panel">
+<div class="review-header">
+<div class="avatar-stub">K</div>
+<div class="reviewer-info">
+<h4>Krishita Kc</h4>
+<div class="stars">★★★★★</div>
+</div>
+</div>
+<p class="review-text">The owner is really polite. Service was so nice. You will feel very comfortable</p>
+</div>
+</div>
+<a href="https://www.google.com/search?sca_esv=d7a897ae2fa4bc83&amp;sxsrf=APpeQnuHmUOlDrFazWwcTTeZF1Kjmm9kqA:1783427690534&amp;si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-__EDG9xWtXgOYKL-gPYQsS09bEwE6-T_jjilky7v5H61Y6q20NZt4ZoXiaKkl0aqpQoGkGba4IQU0bYOJ1e7l9CfFw9d&amp;q=shine+n+glow+Reviews&amp;sa=X&amp;ved=2ahUKEwj29ufvycCVAxWHaXADHfT1NSIQ0bkNegQIKRAF&amp;biw=1366&amp;bih=645&amp;dpr=1">
+<button class="btn btn-primary" style="margin-top: 15px; padding: 10px 35px;">Read more</button>
+</a>
+</section>
+<!-- Booking Form Section -->
+<section class="booking-section" id="booking">
+<h2 class="section-title-bar glass-panel" style="max-width: 450px;">Book a visit now</h2>
+<div class="form-card glass-panel">
+<form onsubmit="sendBookingToWhatsApp(event);">
+<div class="form-grid">
+<div class="form-group">
+<label for="name">Name</label>
+<input id="name" placeholder="Type here..." required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="time">Time slot</label>
+<input id="time" placeholder="Type here..." required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="phone">Ph. number</label>
+<input id="phone" placeholder="Type here..." required="" type="tel"/>
+</div>
+<div class="form-group">
+<label for="location">Location</label>
+<input id="location" placeholder="Type here..." type="text"/>
+</div>
+<!-- Chosen Service query selector field featuring integrated navigation indicators -->
+<div class="form-group" style="grid-column: span 2;">
+<label for="service">Chosen Service</label>
+<select id="service" required="">
+<option value="">-- Select a service --</option>
+<option value="hair">Skin care</option>
+<option value="facial">Hair care</option>
+<option value="massage">Manicure and pedicure</option>
+<option value="manicure">Makeup </option>
+</select>
+</div>
+</div>
+<!-- Updated submission field featuring prominent messaging notes -->
+<div class="form-submit-container">
+<button class="btn-submit" type="submit">Confirm on WhatsApp 💬</button>
+<div class="whatsapp-notice">
+                            ℹ️ <em>You will be redirected securely to WhatsApp to send your structured appointment message straight to us.</em>
+</div>
+</div>
+</form>
+</div>
+</section>
+<br/>
+<br/>
+<br/>
+<br/>
+<!-- Primary Outlet Section -->
+<section>
+<div class="outlet-card glass-panel">
+<div class="outlet-map-placeholder">
+<div style="color: rgba(255,255,255,0.4); font-size: 0.9rem; text-align: center; padding: 10px;">[ Outlet Preview Mapping ]</div>
+</div>
+<div class="outlet-info">
+<h2>Our primary outlet</h2>
+<p>Road no.6 rajeevnagar patna bihar</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Minimal Footer Component -->
+<footer>
+<a class="back-to-top" href="#top">Back to top ↑</a>
+<div class="copyright">
+            © 2026 Shine &amp; Glow. All Rights Reserved.
+        </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BeautySalon",
+  "name": "Shine \u0026 Glow",
+  "image": "https://shineandglowpatna.com/logo.png",
+  "telephone": "+919386870037",
+  "url": "https://shineandglowpatna.com", 
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Road no.6, Rajeev Nagar",
+    "addressLocality": "Patna",
+    "addressRegion": "Bihar",
+    "postalCode": "800024",
+    "addressCountry": "IN"
+  },
+  "priceRange": "₹₹"
+}
+</script>
+<!-- Booking Mechanics Script Logic Handles -->
+<script>
+        // Automatically pre-select option based on incoming links from services page
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const serviceParam = urlParams.get('service');
+            if (serviceParam) {
+                const dropdown = document.getElementById('service');
+                if (dropdown) {
+                    dropdown.value = serviceParam;
+                }
+            }
+        });
+
+        // Formats data inputs and dispatches straight onto target salon mobile line via API
+        function sendBookingToWhatsApp(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const time = document.getElementById('time').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const location = document.getElementById('location').value.trim() || 'Not provided';
+            const serviceSelect = document.getElementById('service');
+            const serviceName = serviceSelect.options[serviceSelect.selectedIndex].text;
+
+            // Target routing number set securely
+            const salonWhatsAppNumber = "919386870037"; 
+
+            const textMessage = 
+`✨ *NEW SALON BOOKING REQUEST* ✨
+
+👤 *Customer Name:* ${name}
+🕒 *Preferred Time:* ${time}
+📞 *Contact Number:* ${phone}
+📍 *Client Location:* ${location}
+💇‍♀️ *Selected Service:* ${serviceName}
+
+_Sent instantly via Shine & Glow digital web app._`;
+
+            const whatsappAPIUrl = `https://wa.me/${salonWhatsAppNumber}?text=${encodeURIComponent(textMessage)}`;
+            window.open(whatsappAPIUrl, '_blank');
+        }
+    </script>
+</body>
+</html>

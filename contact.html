@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="icon" href="logo.png">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shine & Glow - Contact</title>
+    <style>
+        /* Base Reset & Layout */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* Rich, deep burgundy/red-black gradient matched to image_781f5f.png */
+            background-color: #160205;
+            background-image: radial-gradient(circle at 50% 40%, #4a0a14 0%, #160205 90%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Replicating the background bokeh/art circles dynamically */
+        .bg-glow-circle {
+            position: absolute;
+            background: radial-gradient(circle, #cca052 0%, rgba(204,160,82,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.45;
+            filter: blur(15px);
+        }
+        .bg-ring {
+            position: absolute;
+            border: 12px solid #cca052;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.35;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+        }
+
+        /* Positioning elements exactly to recreate image_781f5f.png layout */
+        .circle-top-right { top: -100px; right: -80px; width: 350px; height: 350px; opacity: 0.6; }
+        .circle-mid-right { top: 35%; right: 15%; width: 60px; height: 60px; }
+        .circle-low-right { bottom: 25%; right: 10%; width: 90px; height: 90px; }
+        .circle-bottom-left { bottom: -120px; left: -100px; width: 380px; height: 380px; opacity: 0.7; }
+        .circle-mid-left { top: 40%; left: 5%; width: 100px; height: 100px; }
+        
+        .ring-top-left { top: 12%; left: 8%; width: 140px; height: 140px; border-width: 10px; }
+        .ring-bottom-right { bottom: 8%; right: 12%; width: 180px; height: 180px; border-width: 14px; }
+
+        /* Container Structure */
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        /* Header / Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            width: 100%;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 16px 6px 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+        }
+
+        .logo-img {
+            height: 30px;
+            width: auto;
+            display: block;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 5px 10px;
+            border-radius: 30px;
+        }
+
+        nav a {
+            color: #dcdcdc;
+            text-decoration: none;
+            padding: 8px 18px;
+            display: inline-block;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        nav a.active, nav a:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            color: #fff;
+        }
+
+        /* Main Center Card Display Content Section */
+        .content-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            padding: 40px 0;
+        }
+
+        /* High-Fidelity Glassmorphism Panel Wrapper */
+        .whatsapp-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 35px;
+            width: 100%;
+            max-width: 420px;
+            padding: 45px 35px;
+            box-shadow: 0 25px 55px rgba(0, 0, 0, 0.55), inset 0 0 20px rgba(255, 255, 255, 0.02);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+
+        /* WhatsApp Logo Image styling */
+        .whatsapp-logo-img {
+            width: 105px;
+            height: 105px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+        }
+
+        /* Card Typography Layout Sets */
+        .card-heading {
+            font-size: 2.1rem;
+            font-weight: 400;
+            color: #ffffff;
+            line-height: 1.25;
+            letter-spacing: 0.5px;
+        }
+
+        .card-heading strong {
+            font-weight: 700;
+            display: block;
+            font-size: 2.3rem;
+            margin-top: 4px;
+        }
+
+        .card-description {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.5;
+            font-weight: 400;
+            max-width: 90%;
+            margin-bottom: 5px;
+        }
+
+        /* Integrated Custom Action Direct Hyperlink Route Entry point */
+        .whatsapp-cta-link {
+            width: 100%;
+            text-decoration: none;
+            display: block;
+        }
+
+        .whatsapp-btn {
+            background-color: #2b7d38;
+            color: #ffffff;
+            border: none;
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(43, 125, 56, 0.25);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #349643;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 150, 67, 0.4);
+        }
+
+        .whatsapp-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* Footer Copyright Block */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Precise Responsiveness adjustments */
+        @media (max-width: 480px) {
+            .whatsapp-card {
+                padding: 35px 25px;
+                margin: 0 10px;
+            }
+            .card-heading { font-size: 1.8rem; }
+            .card-heading strong { font-size: 2.0rem; }
+            .card-description { font-size: 1.05rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow-circle circle-top-right"></div>
+    <div class="bg-glow-circle circle-mid-right"></div>
+    <div class="bg-glow-circle circle-low-right"></div>
+    <div class="bg-glow-circle circle-bottom-left"></div>
+    <div class="bg-glow-circle circle-mid-left"></div>
+    <div class="bg-ring ring-top-left"></div>
+    <div class="bg-ring ring-bottom-right"></div>
+
+    <div class="container">
+        <header>
+            <div class="logo-box">
+                <img class="logo-img" src="logo.png" alt="S&G Logo">
+                <span>Shine & Glow</span>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="team.html">Our Team</a>
+                <a href="services.html">Services</a>
+                <a href="#" class="active">Contact</a>
+            </nav>
+        </header>
+
+        <main class="content-wrapper">
+            <div class="whatsapp-card">
+                
+                <img class="whatsapp-logo-img" src="whatsapp.png" alt="WhatsApp Logo">
+
+                <h2 class="card-heading">
+                    Call us on
+                    <strong>WhatsApp</strong>
+                </h2>
+
+                <p class="card-description">
+                    For any questions, feel free to contact us on whatsapp
+                </p>
+
+                <a class="whatsapp-cta-link" href="https://wa.me/919386870037" target="_blank">
+                    <button class="whatsapp-btn">
+                        Connect Now 💬
+                    </button>
+                </a>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="copyright">
+                &copy; 2026 Shine & Glow. All Rights Reserved.
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>

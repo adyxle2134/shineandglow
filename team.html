@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="icon" href="logo.png">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shine & Glow - Our Team</title>
+    <style>
+        /* Base Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0b1a0e;
+            background-image: radial-gradient(circle at 80% 20%, #16381c 0%, #0b1a0e 70%);
+            color: #ffffff;
+            position: relative;
+            min-height: 100vh;
+            padding-bottom: 20px;
+            overflow-x: hidden;
+        }
+
+        /* Pure CSS Noise Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Reusable Glassmorphism Class */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header / Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 16px 6px 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 12px;
+        }
+
+        .logo-img {
+            height: 30px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        nav.glass-panel {
+            padding: 5px 10px;
+            border-radius: 30px;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 8px 18px;
+            display: inline-block;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        nav a.active, nav a:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            color: #fff;
+        }
+
+        /* Section Dividers / Capsule Headers */
+        .section-title-bar {
+            background: rgba(18, 54, 25, 0.5);
+            border: 1px solid rgba(255,255,255,0.08);
+            display: inline-block;
+            padding: 10px 30px;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: bold;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            margin: 40px 0 25px 0;
+            text-transform: uppercase;
+            border-radius: 12px;
+        }
+
+        /* Meet the Team Grid layout */
+        .team-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .team-content-card {
+            width: 55%;
+            padding: 40px 35px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .team-name {
+            color: #ff9e1b;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .team-bio {
+            color: #e0e0e0;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        /* Updated Button Styles to support <a> Tag Anchor link */
+        .btn-visit {
+            display: inline-block;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ff9e1b;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-visit:hover {
+            background: #ff9e1b;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .btn-visit:active {
+            transform: scale(0.95);
+        }
+
+        .team-image-container {
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .team-img {
+            width: 100%;
+            max-width: 340px;
+            height: auto;
+            object-fit: contain;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* About Salon Section */
+        .about-section {
+            margin-top: 50px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.5s forwards;
+        }
+
+        .about-card {
+            padding: 45px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .about-text {
+            color: #ff9e1b;
+            font-size: 1.4rem;
+            line-height: 1.7;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        /* Footer Styles */
+        footer {
+            margin-top: 80px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(7, 18, 9, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px 25px 20px;
+            text-align: center;
+            animation: fadeIn 1s ease-out 0.8s both;
+        }
+
+        .back-to-top {
+            color: #ff9e1b;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            transition: 0.3s;
+        }
+
+        .back-to-top:hover {
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: #666;
+            padding-top: 5px;
+        }
+
+        /* Responsive UI Breakpoints */
+        @media (max-width: 768px) {
+            .team-section {
+                flex-direction: column-reverse;
+                gap: 30px;
+            }
+            .team-content-card, .team-image-container {
+                width: 100%;
+            }
+            .about-card {
+                padding: 25px;
+            }
+            .about-text {
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="top">
+        <header>
+            <div class="logo-box glass-panel">
+                <img class="logo-img" src="logo.png" alt="S&G Logo">
+                <span>Shine & Glow</span>
+            </div>
+            <nav class="glass-panel">
+                <a href="index.html">Home</a>
+                <a href="#" class="active">Our Team</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <section>
+            <div class="section-title-bar glass-panel">
+                Meet the Team
+            </div>
+            
+            <div class="team-section">
+                <div class="team-content-card glass-panel">
+                    <div class="team-name">Archana Singh</div>
+                    <p class="team-bio">
+                        With over 200+ reviews on her salon, Archana has gained the trust of every customer and never failed to leave them dissatisfied and always managed to put a smile on each customer's face all in a really reasonable price.
+                    </p>
+                    <a href="index.html#booking-section" class="btn-visit">Book a visit now</a>
+                </div>
+
+                <div class="team-image-container">
+                    <img class="team-img" src="archana.png" alt="Archana Singh Stylist Showcase">
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="section-title-bar glass-panel" style="margin-top: 20px;">
+                About the Salon
+            </div>
+
+            <div class="about-card glass-panel">
+                <p class="about-text">
+                    "We offer a complete range of beauty services to fit your needs. From hair styling, to facial skin care, to body massage, manicures, pedicures and more, we are your all-in-one resource for a beautiful new you come and experience it today!"
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <a href="#top" class="back-to-top">Back to top ↑</a>
+        <div class="copyright">
+            &copy; 2026 Shine & Glow. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

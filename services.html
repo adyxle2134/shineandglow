@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Shine & Glow Luxury Salon</title>
+    <meta name="description" content="Explore luxury salon services at Shine & Glow, Patna. From premium skin care facials and advanced hair care to bridal makeup and spa manicures.">
+    <link rel="icon" href="logo.png">
+    <style>
+        /* Base Reset & Luxury Font Setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* Implements the dark burgundy background aesthetic from image_781f5f.png */
+            background-color: #160205;
+            background-image: radial-gradient(circle at 50% 30%, #4a0a14 0%, #160205 85%);
+            color: #ffffff;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            padding-bottom: 60px;
+        }
+
+        /* Abstract glowing golden bokeh vectors from image_781f5f.png */
+        .bg-glow-circle {
+            position: absolute;
+            background: radial-gradient(circle, #cca052 0%, rgba(204,160,82,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.35;
+            filter: blur(20px);
+        }
+        .bg-ring {
+            position: absolute;
+            border: 10px solid #cca052;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.25;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+        }
+
+        /* Ambient Art Position Arrangements */
+        .glow-1 { top: 5%; right: -100px; width: 400px; height: 400px; }
+        .glow-2 { top: 40%; left: -150px; width: 500px; height: 500px; opacity: 0.25; }
+        .glow-3 { bottom: 10%; right: -50px; width: 350px; height: 350px; }
+        .ring-1 { top: 25%; right: 15%; width: 120px; height: 120px; }
+        .ring-2 { bottom: 35%; left: 8%; width: 160px; height: 160px; }
+
+        /* Master Structural Container */
+        .container {
+            max-width: 1140px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Global Header Layout */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0 45px 0;
+            width: 100%;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 18px 8px 12px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-img {
+            height: 32px;
+            width: auto;
+            display: block;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 12px;
+            border-radius: 30px;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 8px 20px;
+            display: inline-block;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        nav a.active, nav a:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            color: #fff;
+        }
+
+        /* Top Page Headline Container */
+        .page-title-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-main-heading {
+            font-size: 2.6rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #ffffff;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        /* Premium Alternating Service Layout Block with Soft Edges */
+        .services-list-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 45px;
+            margin-bottom: 60px;
+        }
+
+        /* Custom Glassmorphism Structure Panel */
+        .service-row-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 28px; /* Smooth, soft-edge corners */
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+
+        .service-row-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(204, 160, 82, 0.3);
+        }
+
+        /* Alternates layout rows as displayed natively in image_83da5c.png */
+        .service-row-card:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        /* Optimized Image Container to FIT content instead of cropping it */
+        .service-image-holder {
+            flex: 1.1;
+            max-width: 45%;
+            height: 380px;
+            overflow: hidden;
+            border-radius: 20px; /* Soft curved edges */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.02); /* Elegant backing overlay context */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px; /* Keeps image safely spaced from frame edge */
+        }
+
+        .service-image-holder img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Forces image to fit perfectly clear and un-cropped */
+            transition: transform 0.5s ease;
+        }
+
+        .service-row-card:hover .service-image-holder img {
+            transform: scale(1.03);
+        }
+
+        /* Typography & Service Content Layout Block */
+        .service-text-holder {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .service-category-title {
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: #cca052; /* Luxury gold matching style theme */
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .service-sub-tagline {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.4;
+            border-left: 3px solid #cca052;
+            padding-left: 12px;
+        }
+
+        .service-description-para {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* Styled Service Options List Structure */
+        .service-features-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px 20px;
+            width: 100%;
+            margin: 6px 0 12px 0;
+        }
+
+        .service-features-list li {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.85);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Premium Customized Check Icon Bullets matching image_83da5c.png color accents */
+        .service-features-list li::before {
+            content: "✓";
+            color: #cca052;
+            font-weight: 900;
+            font-size: 1.1rem;
+        }
+
+        /* Soft-Edged Action Conversion Route Trigger Button */
+        .appointment-action-btn {
+            background-color: #cca052;
+            color: #160205;
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 14px; /* Perfectly softened edges */
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(204, 160, 82, 0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .appointment-action-btn:hover {
+            background-color: #e5b867;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 22px rgba(204, 160, 82, 0.4);
+        }
+
+        .appointment-action-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Layout Footer component */
+        footer {
+            text-align: center;
+            padding: 30px 0 10px 0;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 40px;
+        }
+
+        /* Smooth Adaptive Layout Responsiveness */
+        @media (max-width: 900px) {
+            .service-row-card, .service-row-card:nth-child(even) {
+                flex-direction: column;
+                padding: 30px;
+                gap: 30px;
+            }
+            .service-image-holder {
+                max-width: 100%;
+                width: 100%;
+                height: 320px;
+            }
+            .service-features-list {
+                grid-template-columns: 1fr;
+            }
+            .page-main-heading {
+                font-size: 2.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Art Layer Background Elements mapped from image_781f5f.png -->
+    <div class="bg-glow-circle glow-1"></div>
+    <div class="bg-glow-circle glow-2"></div>
+    <div class="bg-glow-circle glow-3"></div>
+    <div class="bg-ring ring-1"></div>
+    <div class="bg-ring ring-2"></div>
+
+    <div class="container">
+        <!-- Structural Header -->
+        <header>
+            <div class="logo-box">
+                <img class="logo-img" src="logo.png" alt="S&G Logo">
+                <span>Shine & Glow</span>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="team.html">Our Team</a>
+                <a href="#" class="active">Services</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Dynamic Main Workspace Grid -->
+        <main>
+            <div class="page-title-section">
+                <h1 class="page-main-heading">Our Premium Services</h1>
+            </div>
+
+            <div class="services-list-wrapper">
+
+                <!-- ROW 1: SKIN CARE -->
+                <section class="service-row-card">
+                    <div class="service-text-holder">
+                        <h2 class="service-category-title">Skin Care</h2>
+                        <h3 class="service-sub-tagline">Experience the best facial services in Patna for glowing skin</h3>
+                        <p class="service-description-para">
+                            A facial specialist, also recognized as a skincare expert, is highly skilled in cleansing, nourishing, and enhancing facial features and the body to improve an individual's appearance. Indulge in premier options curated precisely to rejuvenate your cells, flush impurities, and restore your skin's youthful vibrancy.
+                        </p>
+                        <a href="index.html?service=facial#booking" class="appointment-action-btn">
+                            📅 Book An Appointment
+                        </a>
+                    </div>
+                    <div class="service-image-holder">
+                        <img src="unnamed-removebg-preview 3.png" alt="Premium Skin Care Facial Treatments at Shine and Glow Patna">
+                    </div>
+                </section>
+
+                <!-- ROW 2: HAIR CARE (Alternating Layout) -->
+                <section class="service-row-card">
+                    <div class="service-text-holder">
+                        <h2 class="service-category-title">Hair Care</h2>
+                        <h3 class="service-sub-tagline">Premium cut, color, spa, and texturing treatments</h3>
+                        <p class="service-description-para">
+                            Exceptional hair is not a coincidence, it is a result of a well-planned appointment. Our professional hair stylists are dedicated to providing you with the perfect cut, style, and intensive therapy treatments to let your hair speak for itself.
+                        </p>
+                        <ul class="service-features-list">
+                            <li>Wash, Cutting & Styling</li>
+                            <li>Hair Spa & Massages</li>
+                            <li>Hair Chemical Work</li>
+                            <li>Deep Root Treatment</li>
+                            <li>Hair Texturing & Smooth</li>
+                            <li>Premium Fashion Color</li>
+                        </ul>
+                        <a href="index.html?service=hair#booking" class="appointment-action-btn">
+                            📅 Book An Appointment
+                        </a>
+                    </div>
+                    <div class="service-image-holder">
+                        <img src="hair.png" alt="Professional Hair Styling and Texturing Services in Patna">
+                    </div>
+                </section>
+
+                <!-- ROW 3: MANICURE & PEDICURE -->
+                <section class="service-row-card">
+                    <div class="service-text-holder">
+                        <h2 class="service-category-title">Manicure & Pedicure</h2>
+                        <h3 class="service-sub-tagline">Premium hands & foot luxury care therapy</h3>
+                        <p class="service-description-para">
+                            Indulge in the best luxury mani-pedi services where professional nail and foot treatments ensure soft, smooth skin and beautifully groomed nails. Pamper your hands and feet with our premium hydrating spas and mask treatments.
+                        </p>
+                        <ul class="service-features-list">
+                            <li>Express Services (Pedi/Mani)</li>
+                            <li>Heavenly Relaxing Spa</li>
+                            <li>Exclusive Bomb Pedicure</li>
+                            <li>Luxury Skin Exfoliation</li>
+                        </ul>
+                        <a href="index.html?service=manicure#booking" class="appointment-action-btn">
+                            📅 Book An Appointment
+                        </a>
+                    </div>
+                    <div class="service-image-holder">
+                        <img src="manicure.png" alt="Luxury Manicure and Pedicure Spa Lounge at Shine and Glow">
+                    </div>
+                </section>
+
+                <!-- ROW 4: MAKEUP (Alternating Layout) -->
+                <section class="service-row-card">
+                    <div class="service-text-holder">
+                        <h2 class="service-category-title">Makeup</h2>
+                        <h3 class="service-sub-tagline">Best professional makeup transformations in Patna</h3>
+                        <p class="service-description-para">
+                            Step into the gorgeous world of luxury makeovers. We excel in creating breathtaking transformations for all occasions, whether it is your big wedding day or an elegant evening gala. Our makeup artist packages are tailored to meet every styling preference seamlessly.
+                        </p>
+                        <a href="index.html?service=massage#booking" class="appointment-action-btn">
+                            📅 Book An Appointment
+                        </a>
+                    </div>
+                    <div class="service-image-holder">
+                        <img src="archana.png" alt="Luxury Bridal Makeover and Party Makeup Artist in Patna">
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+        <!-- Static Footer Structure -->
+        <footer>
+            <div class="copyright">
+                &copy; 2026 Shine & Glow. All Rights Reserved.
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
